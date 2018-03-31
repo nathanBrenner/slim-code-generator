@@ -5,7 +5,7 @@ function createSpecFile({component, path, templatePath}) {
 	const data = template({component, path});
 	const file = `./components/${component}.spec.js`;
 
-	fs.appendFile(file, data, err => {
+	fs.writeFile(file, data, err => {
 		if (err) throw err;
 		console.log(`${component} was added to ${path}`);
 	});
