@@ -9,9 +9,11 @@ I keep finding myself in large codebases that lack unit testing. I would start w
 This is a cli tool. To use, just run `generator` in your terminal and follow the prompts.
 
 For the prompts:
-Directory: The directory that you want to generate the files on. Every file in that directory will get a file with the same name and `.spec` appended between the name of the file and the extension. For example: './components'.
+Directory: The directory that you want to generate the files on. Every file in that directory will get a file with the same name and `.spec` appended between the name of the file and the extension. This should be relative to the root of your application. For example: `./src/components`
 
-Template: The template that you want to be applied to every file that's generated. For example: '../templates/react-spec-template.js'.
+Template: The template that you want to be applied to every file that's generated. You can use templates in this package, and you can create your own.
+
+Available templates on this module: '../templates/react-spec-template.js'.
 
 The script will read all the files of the directory, and create a file that contains the template code for every file in that directory.  For example, if your directory has a list of components, like `['App.js', 'Body.js', 'Home.js']`, the generator will add files for `['App.spec.js', 'Body.spec.js', 'Home.spec.js']`. The dynamic code in the spec files is based on the name of the component based on the file name.
 
