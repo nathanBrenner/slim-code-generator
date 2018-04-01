@@ -13,7 +13,7 @@ Directory: The directory that you want to generate the files on. Every file in t
 
 Template: The template that you want to be applied to every file that's generated. You can use templates in this package, and you can create your own.
 
-Available templates on this module: '../templates/react-spec-template.js'.
+Available templates on this module: '../templates/react-spec-template'.
 
 The script will read all the files of the directory, and create a file that contains the template code for every file in that directory.  For example, if your directory has a list of components, like `['App.js', 'Body.js', 'Home.js']`, the generator will add files for `['App.spec.js', 'Body.spec.js', 'Home.spec.js']`. The dynamic code in the spec files is based on the name of the component based on the file name.
 
