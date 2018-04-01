@@ -6,7 +6,7 @@ Small script to automate generating boilerplate code.
 I keep finding myself in large codebases that lack unit testing. I would start with creating a test file for every file that had code that I wanted to test, and they would all get generally the same code: some imports and a smoke test. This would take a lot of time, and was really boring. This script automates that process for you.
 
 ## How?
-`npm run generator`.
+This is a cli tool. To use, just run `generator` in your terminal and follow the prompts.
 
 For the prompts:
 Directory: The directory that you want to generate the files on. Every file in that directory will get a file with the same name and `.spec` appended between the name of the file and the extension. For example: './components'.

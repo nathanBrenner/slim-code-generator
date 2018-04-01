@@ -1,9 +1,11 @@
 const fs = require('fs');
 
 function createSpecFile({component, path, templatePath}) {
+	const appDirectory = fs.realpathSync(process.cwd());
+
 	const template = require(templatePath);
 	const data = template({component, path});
-	const file = `./components/${component}.spec.js`;
+	const file = `${path}/${component}.spec.js`;
 
 	fs.writeFile(file, data, err => {
 		if (err) throw err;
