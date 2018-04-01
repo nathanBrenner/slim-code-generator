@@ -18,7 +18,7 @@ module.exports = function generateFiles(directory, templatePath) {
 	const files = fs.readdirSync(directory);
 	const components = files.map(file => file.split('.')).map(file => file[0]);
 	const paths = components.map(component => `./${component}`);
-	console.log('generateFiles', {components, path})
+	console.log('generateFiles', {components, paths})
 	components.forEach((component, i) => {
 		createSpecFile({component: components[i], path: paths[i], templatePath})
 	});
