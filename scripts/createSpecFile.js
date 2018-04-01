@@ -5,7 +5,8 @@ function createSpecFile({component, path, templatePath}) {
 
 	const template = require(templatePath);
 	const data = template({component, path});
-	const file = `${path}/${component}.spec.js`;
+	// const file = `${path}/${component}.spec.js`;
+	const file = `${path}.spec.js`;
 	console.log({file});
 
 	fs.writeFile(file, data, err => {
