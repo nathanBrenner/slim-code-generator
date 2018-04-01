@@ -1,6 +1,6 @@
 {
   "name": "slim-code-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A script for creating files with boilerplate code based on a template",
   "main": "index.js",
   "scripts": {
