@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 var prompt = require("prompt");
-var generateFiles = require("./scripts/createSpecFile");
+var generateFiles = require("./scripts/generateFiles");
 
 prompt.get(["directory", "template"], (err, { directory, template }) => {
 	/**
