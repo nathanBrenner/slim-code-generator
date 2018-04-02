@@ -1,8 +1,8 @@
-module.exports = function ComponentSpecTemplate({ component, path }) {
+module.exports = function ComponentSpecTemplate({ component, path, relativePath }) {
 	return `
 // import React from 'react';
 // import { shallow } from 'enzyme';
-// import ${component} from '${path}';
+// import ${component} from '${relativePath}';
 
 describe('${component}', () => {
 	let component;

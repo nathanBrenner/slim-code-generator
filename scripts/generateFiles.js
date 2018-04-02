@@ -19,6 +19,6 @@ module.exports = function generateFiles(directory, templatePath) {
   );
 
   components.forEach((component, i) => {
-    createSpecFile({ component: components[i], path: paths[i], templatePath });
+    createSpecFile({ component: components[i], path: paths[i], templatePath, directory });
   });
 };
