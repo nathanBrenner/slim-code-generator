@@ -5,7 +5,7 @@ module.exports = function createSpecFile({ component, path, templatePath, direct
   const template = require(templatePath);
 
   const file = `${path}.spec.js`;
-  const relativePath = `./${component}.spec.js`;
+  const relativePath = `./${component}.js`;
   const data = template({ component, path, relativePath });
   
   fs.writeFile(file, data, err => {
