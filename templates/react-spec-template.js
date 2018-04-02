@@ -3,13 +3,13 @@ module.exports = function ComponentSpecTemplate({ component, path, relativePath 
 /*
 import React from 'react';
 import { shallow } from 'enzyme';
-import builder from 'src,components,builder/builder.spec.js';
+import ${component} from '${relativePath}';
 
-describe('builder', () => {
+describe('${component}', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<builder />);
+    component = shallow(<${component} />);
   });
 
   xit('renders', () => {
@@ -17,7 +17,7 @@ describe('builder', () => {
   });
 });
 */
-  
+
 `
 };
 
