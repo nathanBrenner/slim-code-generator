@@ -1,19 +1,19 @@
 module.exports = function ComponentSpecTemplate({ component, path, relativePath }) {
-	return `
+  return `
 // import React from 'react';
 // import { shallow } from 'enzyme';
 // import ${component} from '${relativePath}';
 
-describe('${component}', () => {
-	let component;
+// describe('${component}', () => {
+  // let component;
 
-	// beforeEach(() => {
-	//   component = shallow(<${component} />);
-	// });
+  // beforeEach(() => {
+  //   component = shallow(<${component} />);
+  // });
 
-	xit('renders', () => {
-		expect(component).toBeTruthy();
-	});
-});`
+  // xit('renders', () => {
+    // expect(component).toBeTruthy();
+  // });
+// });`
 };
 
