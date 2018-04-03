@@ -1,4 +1,5 @@
 const fs = require("fs");
+const checkComponentName = require("./checkComponentName");
 
 module.exports = function createSpecFile({ component, path, templatePath, directory }) {
   // tech debt: rename path param because it could be confused with node path module
@@ -6,7 +7,8 @@ module.exports = function createSpecFile({ component, path, templatePath, direct
 
   const file = `${path}.spec.js`;
   const relativePath = `./${component}.js`;
-  const data = template({ component, path, relativePath });
+
+  const data = template({ component: checkComponentName(component), relativePath });
   
   fs.writeFile(file, data, err => {
     if (err) throw err;
