@@ -2,29 +2,82 @@
 
 Small script to automate generating boilerplate code.
 
-## Why?
-I keep finding myself in large codebases that lack unit testing. I would start with creating a test file for every file that had code that I wanted to test, and they would all get generally the same code: some imports and a smoke test. This would take a lot of time, and was really boring. This package is currently used to generate that boilerplate based on the existing template.
-
-If you have a directory of React components that don't have any test files for those components, this cli can be used to generate the boilerplate code for test files for each component in the directory.
-
 ## How?
 This is a cli tool. To use, just run `generator` in your terminal and follow the prompts.
 
+All files created are created in the directory where the generator cli is called.
+
 For the prompts:
-Directory: The directory that you want to generate the files on. Every file in that directory will get a file with the same name and `.spec` appended between the name of the file and the extension. This should be relative to the root of your application. For example: `./src/components`.
 
-Template: Currently, this module only supports the single `react-spec-template` that can be found in the `./templates` directory.
+Template: Provide "jest", "presentation", "container". Or you can provide the shorthand: 'j' for jest, 'p' for presentational, 'c' for container. Anything else is invalid and no code will be generated.
 
-The script will read all the files of the directory, and create a file that contains the template code for every file in that directory.  For example, if your directory has a list of components, like `['App.js', 'Body.js', 'Home.js']`, the generator will add files for `['App.spec.js', 'Body.spec.js', 'Home.spec.js']`. The dynamic code in the spec files is based on the name of the component based on the file name.
+File: The name of the file as you want it to appear in your directory without any prefix.
 
-If the spec files already exist, they will be rewritten based on the template.
+## Examples:
 
-The generated code will be commented out, so it wont break any existing linters, and the code wont be tested until you're ready to comment the code in.
+### Jest
+Template: jest
+File: foo
 
-## Current Support
-You can generate test files for React components on a React app that is configured with Jest and Enzyme. If you're using Create React App, there's setup required for Jest, but you'll need to setup Enzyme. Look at the Create-React-App documentation for this.
+output: `foo.spec.js was added`
+```
+// import React from 'react';
+// import { shallow } from 'enzyme';
+// import { Foo } from './foo.js';
+
+describe('Foo', () => {
+  let component;
+
+  beforeEach(() => {
+    // component = shallow(<Foo />);
+  });
+
+  xit('renders', () => {
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+Note: You'll need to have Jest and Enzyme configured in your application for this test to run.
+Also, you should recognize that this test will be marked pending until you modify the generated code. This is good because sometimes you need to create unit tests on code that already exists. This test wont break until you're ready to check it.
+
+### Presentation
+Template: presentation
+file: foo
+
+output: `foo.js was added`
+
+```
+import React from 'react';
+
+const Foo = (props) => (
+
+);
+
+export default Foo;
+
+```
+
+### Container
+Template: container
+file: foo
+
+output: `foo.js was added`
+
+```
+import React, { Component } from 'react';
+
+class Foo {
+	render() {
+		return (
+
+		);
+	}
+}
+
+export default Foo;
+
+```
 
 ## Roadmap
-- There's some mocha tests. More to come in the future.
-
-- More templates. I imagine I'll create another template for the other types of testing files in a react app, since that's what I'm doing for my day job, so a template for spec file for a reducer and actions.
+- More templates: Create github issues with templates that you want to use. This tool can be used to create any file based on any template. Additional arguments could be added in promps based on the template prompt.
