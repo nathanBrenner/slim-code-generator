@@ -16,7 +16,8 @@
     "generator": "./index.js"
   },
   "dependencies": {
-    "prompt": "^1.0.0"
+    "prompt": "^1.0.0",
+    "prompt-improved": "^0.1.10"
   },
   "devDependencies": {
     "mocha": "^5.0.5",
