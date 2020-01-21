@@ -20,7 +20,7 @@
     "prompt-improved": "^0.1.10"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
-    "sinon": "^4.5.0"
+    "mocha": "^7.0.0",
+    "sinon": "^8.1.0"
   }
 }
